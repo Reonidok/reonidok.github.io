@@ -1,0 +1,27 @@
+name: Build and Deploy
+on: [push]
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Build Angular App
+      run: |
+        cd your-angular-app-directory
+        npm install
+        npm run build -- --prod
+
+    - name: Build .NET App
+      run: |
+        cd your-dotnet-app-directory
+        dotnet restore
+        dotnet publish --configuration Release --output ./build
+
+    - name: Deploy
+      # Use the appropriate action for your chosen hosting service
+      uses: JamesIves/github-pages-deploy-action@4.1.5
+      with:
+        branch: master # The branch the action should deploy to.
+        folder: dist # The folder the action should deploy.
