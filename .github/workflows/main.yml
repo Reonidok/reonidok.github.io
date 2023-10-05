@@ -15,7 +15,7 @@ jobs:
 
     - name: Build .NET App
       run: |
-        cd reonidok.github.io
+        cd
         dotnet restore
         dotnet publish --configuration Release --output ./build
 
