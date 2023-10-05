@@ -9,13 +9,13 @@ jobs:
 
     - name: Build Angular App
       run: |
-        cd your-angular-app-directory
+        cd ClientApp
         npm install
         npm run build -- --prod
 
     - name: Build .NET App
       run: |
-        cd your-dotnet-app-directory
+        cd reonidok.github.io
         dotnet restore
         dotnet publish --configuration Release --output ./build
 
